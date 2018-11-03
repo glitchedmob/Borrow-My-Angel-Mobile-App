@@ -3,6 +3,7 @@
     <q-layout-header>
       <q-toolbar
         color="primary"
+        :inverted="$q.theme === 'ios'"
       >
         <q-btn
           flat
@@ -45,6 +46,10 @@
         <q-item >
           <q-item-side icon="rss feed" />
           <q-item-main label="Get Help Now!" />
+        </q-item>
+        <q-item @click.native="openURL('https://github.com/glitchedmob/Borrow-My-Angel-Mobile-App')">
+          <q-item-side icon="settings" />
+          <q-item-main label="GitHub" sublabel="@sliceline" />
         </q-item>
       </q-list>
     </q-layout-drawer>
