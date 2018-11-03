@@ -1,9 +1,15 @@
 import Index from 'pages/Index.vue';
+import Login from 'pages/Login.vue';
 
 const routes = [
   {
     path: '/',
     component: Index,
+  },
+  {
+    name: 'Login',
+    path: '/login',
+    component: Login,
   },
   {
     path: '/chat',
