@@ -1,4 +1,5 @@
-/*
-export function someMutation (state) {
-}
-*/
+export default {
+  setMoodLevel(state, level) {
+    state.moodLevel = level;
+  },
+};
