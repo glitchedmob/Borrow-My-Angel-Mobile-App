@@ -1,13 +1,15 @@
 <template>
   <q-layout class="background fullscreen">
     <div class="logo">
-      <img src="~assets/BorrowMyAngel-Logo.png" alt="">
+      <img src="~assets/BorrowMyAngel-Logo.png" alt="" class="q-pt-xl">
     </div>
     <q-page-container class="">
     <q-page padding class="row justify-center">
       <div class="full-width text-center fixed-bottom q-mb-xl">
-        <q-btn label="SIGN UP" color="black" class="q-mr-sm my-sm-btn" size="1em"/>
-        <q-btn label="LOGIN"  color="black" class="q-ml-sm my-sm-btn" size="1em"/>
+        <q-btn @click="signUp" label="SIGN UP" color="black" class="q-mr-sm my-sm-btn" size="1em"/>
+        <q-btn
+        :to='{ name: "Login" }'
+        label="LOGIN"  color="black" class="q-ml-sm my-sm-btn" size="1em"/>
         <br><br>
         <q-btn label="REQUEST AN ANGEL" color="red-10" size="1em"/>
       </div>
@@ -32,5 +34,13 @@
 <script>
 export default {
   name: 'PageIndex',
+  methods: {
+    signUp() {
+      this.$q.dialog({
+        title: 'Alert',
+        message: 'Modern HTML5 front-end framework on steroids.',
+      });
+    },
+  },
 };
 </script>
