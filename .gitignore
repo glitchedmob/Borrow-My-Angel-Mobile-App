@@ -4,9 +4,12 @@
 node_modules
 /dist
 /src-cordova/node_modules
-/src-cordova/platforms
-/src-cordova/plugins
-/src-cordova/www
+/src-cordova/platforms/**/*
+/src-cordova/plugins/**/*
+/src-cordova/www/**/*
+!src-cordova/platforms/.gitkeep
+!src-cordova/plugins/.gitkeep
+!src-cordova/www/.gitkeep
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
