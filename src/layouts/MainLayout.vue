@@ -53,6 +53,8 @@
         </q-item>
       </q-list>
     </q-layout-drawer>
+    <q-dialog>
+    </q-dialog>
 
     <q-page-container>
       <router-view />

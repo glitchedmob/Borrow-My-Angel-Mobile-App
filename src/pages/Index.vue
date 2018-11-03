@@ -11,7 +11,12 @@
         :to='{ name: "Login" }'
         label="LOGIN"  color="black" class="q-ml-sm my-sm-btn" size="1em"/>
         <br><br>
-        <q-btn label="REQUEST AN ANGEL" color="red-10" size="1em"/>
+        <q-btn label="REQUEST AN ANGEL" @click="requestAngel" color="red-10" size="1em"/>
+
+        <q-dialog
+          v-model="customeDialogModel"
+        >
+        </q-dialog>
       </div>
     </q-page>
     </q-page-container>
@@ -35,7 +40,7 @@
 export default {
   name: 'PageIndex',
   methods: {
-    signUp() {
+    requestAngel() {
       this.$q.dialog({
         title: 'Alert',
         message: 'Modern HTML5 front-end framework on steroids.',
