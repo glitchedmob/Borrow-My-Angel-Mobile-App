@@ -60,9 +60,12 @@ module.exports = function (ctx) {
         'QItemSide',
         'QField',
         'QInput',
+        'QDialog',
+        'QModal',
       ],
       directives: [
         'Ripple',
+        'CloseOverlay',
       ],
       // Quasar plugins
       plugins: [
