@@ -1,4 +1,5 @@
 // Configuration for your app
+const env = require('./env.json');
 
 module.exports = function (ctx) {
   return {
@@ -113,7 +114,7 @@ module.exports = function (ctx) {
       },
     },
     cordova: {
-      // id: 'org.cordova.quasar.app'
+      id: env.cordovaId,
     },
     electron: {
       // bundler: 'builder', // or 'packager'
