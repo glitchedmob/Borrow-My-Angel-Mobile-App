@@ -16,7 +16,7 @@
         </q-btn>
 
         <q-toolbar-title>
-          Borrow My Angle
+          Borrow My Angel
         </q-toolbar-title>
       </q-toolbar>
     </q-layout-header>
