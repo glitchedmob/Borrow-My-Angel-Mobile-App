@@ -74,6 +74,7 @@ module.exports = function (ctx) {
         'QModalLayout',
         'QItemSeparator',
         'QItemTile',
+        'QChatMessage',
       ],
       directives: [
         'Ripple',
