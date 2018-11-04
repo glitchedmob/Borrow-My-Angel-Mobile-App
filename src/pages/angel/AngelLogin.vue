@@ -53,23 +53,23 @@ export default {
         password: this.password,
       });
 
-      if (loginRes.status !== 200) return;
+      // if (loginRes.status !== 200) return;
 
       this.setToken({ token: loginRes.data.token });
 
       console.log(this.token);
 
-      const userRes = await this.$axios({
-        method: 'get',
-        url: `${process.env.BASE_URL}/angels/me`,
-        headers: {
-          Authorization: `Bearer ${this.token}`,
-        },
-      });
+      // const userRes = await this.$axios({
+      //   method: 'get',
+      //   url: `${process.env.BASE_URL}/angels/me`,
+      //   headers: {
+      //     Authorization: `Bearer ${this.token}`,
+      //   },
+      // });
 
-      this.setStatus({ status: userRes.data.status });
+      // this.setStatus({ status: userRes.data.status });
 
-      this.$router.push({ name: 'AngelChatList' });
+      this.$router.push({ name: 'AngelChatDetail' });
     },
     ...mapMutations('angel', ['setToken', 'setStatus']),
   },
