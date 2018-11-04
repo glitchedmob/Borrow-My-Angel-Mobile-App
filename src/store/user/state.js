@@ -1,4 +1,5 @@
 export default {
-  pageTitle: 'Chat With An Angel',
+  token: '',
+  justName: '',
   moodLevel: 0,
 };

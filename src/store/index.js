@@ -1,9 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import main from './main';
-import chat from './chat';
-import resource from './resource';
+import user from './user';
+import angel from './angel';
 
 Vue.use(Vuex);
 
@@ -15,9 +14,8 @@ Vue.use(Vuex);
 export default function (/* { ssrContext } */) {
   const Store = new Vuex.Store({
     modules: {
-      main,
-      chat,
-      resource,
+      user,
+      angel,
     },
   });
 

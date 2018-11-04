@@ -32,8 +32,11 @@
       >
         <!-- <q-list-header></q-list-header> -->
         <q-item >
-          <q-item-side icon="school" />
-          <q-item-main label="Borrow an Angle" />
+          <q-select
+            v-model="status"
+            float-label='Angel Status'
+            :options="statusOptions"
+          />
         </q-item>
       </q-list>
     </q-layout-drawer>
@@ -52,10 +55,19 @@ export default {
   data() {
     return {
       leftDrawerOpen: this.$q.platform.is.desktop,
+      status: 'available',
+      statusOptions: [
+        { label: 'Available', value: 'available' },
+        { label: 'Unavailable', value: 'unavailable' },
+        { label: 'Do Not Disturb', value: 'do_not_disturb' },
+      ],
     };
   },
   methods: {
     openURL,
+    // handleStatusChange() {
+    //   const url = `${process.env.BASE_URL}`
+    // }
   },
 };
 </script>
