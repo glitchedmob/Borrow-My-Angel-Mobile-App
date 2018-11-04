@@ -82,6 +82,7 @@
 
 <script>
 import { mapState, mapMutations } from 'vuex';
+import { ChatManager, TokenProvider } from '@pusher/chatkit-client';
 
 export default {
   name: 'PageIndex',
@@ -150,6 +151,28 @@ export default {
       this.emergencyModal = false;
     },
     ...mapMutations('chat', ['setMoodLevel']),
+  },
+  mounted() {
+    const chatManager = new ChatManager({
+      instanceLocator: 'v1:us1:91cc3090-f513-433f-a90e-779c8df8b236',
+      userId: 'person1',
+      tokenProvider: new TokenProvider({ url: 'https://borrowmyangel.unitedco.de/api/chat/token' }),
+    });
+    chatManager
+      .connect()
+      .then((currentUser) => {
+        currentUser.subscribeToRoom({
+          roomId: currentUser.rooms[0].id,
+          hooks: {
+            onMessage: (message) => {
+              console.log(`Received new message: ${message.text}`);
+            },
+          },
+        });
+      })
+      .catch((error) => {
+        console.error('error:', error);
+      });
   },
 };
 
