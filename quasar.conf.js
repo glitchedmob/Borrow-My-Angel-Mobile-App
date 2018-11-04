@@ -64,13 +64,15 @@ module.exports = function (ctx) {
         'QTabs',
         'QTab',
         'QTabPane',
-        'QModal',
-        'QModalLayout',
         'QSelect',
         'QRadio',
+        'QDialog',
+        'QModal',
+        'QModalLayout',
       ],
       directives: [
         'Ripple',
+        'CloseOverlay',
       ],
       // Quasar plugins
       plugins: [
