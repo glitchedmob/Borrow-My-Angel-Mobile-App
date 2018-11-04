@@ -76,15 +76,23 @@
           </q-modal-layout>
         </q-modal>
         <div class="chat-list">
-          <q-chat-message
-            name="Me"
-            :text="['Test Message']"
-            sent
-          />
-          <q-chat-message
-            name="Angel"
-            :text="['Test Message']"
-          />
+          <template v-for="(message, i) in messages">
+            <template v-if="message.senderId === 'angel1'">
+              <q-chat-message
+                name="Me"
+                :key="i"
+                :text="[message.text]"
+                sent
+              />
+            </template>
+            <template v-else>
+              <q-chat-message
+                :key="i"
+                name="Guest"
+                :text="[message.text]"
+              />
+            </template>
+          </template>
         </div>
         <div class="new-message row fixed-bottom">
           <q-field class="col-10 new-message-field">
@@ -97,7 +105,7 @@
             />
           </q-field>
           <div class="col-2">
-            <q-btn class="send-button">Send</q-btn>
+            <q-btn class="send-button" @click="sendMessage">Send</q-btn>
           </div>
         </div>
       </q-page-container>
@@ -109,6 +117,8 @@
 import { mapState, mapMutations } from 'vuex';
 import { ChatManager, TokenProvider } from '@pusher/chatkit-client';
 
+let globalCurrentUser = null;
+
 export default {
   name: 'PageIndex',
   data() {
@@ -118,6 +128,7 @@ export default {
       emergencyModal: false,
       image: 'assets/emptyHeart.png',
       newMessage: '',
+      messages: [],
       situations: [
         {
           id: 1,
@@ -177,6 +188,14 @@ export default {
       this.moodLevelModal = false;
       this.emergencyModal = false;
     },
+    sendMessage() {
+      globalCurrentUser.sendMessage({
+        text: this.newMessage,
+        roomId: globalCurrentUser.rooms[0].id,
+      });
+
+      this.newMessage = '';
+    },
     ...mapMutations('chat', ['setMoodLevel']),
   },
   mounted() {
@@ -192,10 +211,15 @@ export default {
           roomId: currentUser.rooms[0].id,
           hooks: {
             onMessage: (message) => {
-              console.log(`Received new message: ${message.text}`);
+              this.messages = [
+                ...this.messages,
+                message,
+              ];
             },
           },
         });
+
+        globalCurrentUser = currentUser;
       })
       .catch((error) => {
         console.error('error:', error);

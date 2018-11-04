@@ -67,12 +67,12 @@ const routes = [
         component: () => import('pages/angel/Resources.vue'),
       },
       {
-        path: 'chat',
+        path: 'chat-list',
         name: 'AngelChatList',
         component: () => import('pages/angel/ChatList.vue'),
       },
       {
-        path: 'chat/:id',
+        path: 'chat',
         name: 'AngelChatDetail',
         component: () => import('pages/angel/ChatDetail.vue'),
       },
