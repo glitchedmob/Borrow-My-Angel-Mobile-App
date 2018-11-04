@@ -1,5 +1,7 @@
 import Index from 'pages/Index.vue';
 import Login from 'pages/Login.vue';
+import Signup from 'pages/Signup.vue';
+import AngelSignUp from 'pages/angel/AngelSignup.vue';
 
 const routes = [
   {
@@ -10,6 +12,16 @@ const routes = [
     name: 'Login',
     path: '/login',
     component: Login,
+  },
+  {
+    name: 'Signup',
+    path: '/signup',
+    component: Signup,
+  },
+  {
+    name: 'AngelSignUp',
+    path: '/angel/signup',
+    component: AngelSignUp,
   },
   {
     path: '/',
@@ -24,9 +36,9 @@ const routes = [
     path: '/angel',
     component: () => import('layouts/AngelLayout.vue'),
     children: [
-      { path: 'resources', component: () => import('pages/angels/Resources.vue') },
-      { path: 'chat', component: () => import('pages/angels/ChatList.vue') },
-      { path: 'chat/:id', component: () => import('pages/angels/ChatDetail.vue') },
+      { path: 'resources', component: () => import('pages/angel/Resources.vue') },
+      { path: 'chat', component: () => import('pages/angel/ChatList.vue') },
+      { path: 'chat/:id', component: () => import('pages/angel/ChatDetail.vue') },
     ],
   },
 ];

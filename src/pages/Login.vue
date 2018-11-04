@@ -8,16 +8,20 @@
         <q-page>
           <q-field>
           <q-input
+            v-model="email"
             inverted-light
             color="white"
-            stack-label="Username/Email"/>
+            float-label="Email"
+          />
           </q-field>
           <q-field>
           <q-input
+            v-model="password"
             inverted-light
             color="white"
             type="password"
-            stack-label="Password"/>
+            float-label="Password"
+          />
           </q-field>
           <div class="row justify-around">
             <!-- <div class="q-mt-sm"><img src="~assets/facebook.png" alt=""></div>
@@ -29,6 +33,24 @@
     </q-page-container>
   </q-layout>
 </template>
+
+<script>
+export default {
+  name: 'PageIndex',
+  data: () => ({
+    email: '',
+    password: '',
+  }),
+  methods: {
+    signUp() {
+      this.$q.dialog({
+        title: 'Alert',
+        message: 'Modern HTML5 front-end framework on steroids.',
+      });
+    },
+  },
+};
+</script>
 
 <style>
   .background {
@@ -42,17 +64,3 @@
     max-height: 250px;
   }
 </style>
-
-<script>
-export default {
-  name: 'PageIndex',
-  methods: {
-    signUp() {
-      this.$q.dialog({
-        title: 'Alert',
-        message: 'Modern HTML5 front-end framework on steroids.',
-      });
-    },
-  },
-};
-</script>
