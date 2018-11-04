@@ -8,20 +8,20 @@
         <q-page>
           <q-field>
           <q-input
-          inverted-light
-          color="white"
-          stack-label="Username/Email"/>
+            inverted-light
+            color="white"
+            stack-label="Username/Email"/>
           </q-field>
           <q-field>
           <q-input
-          inverted-light
-          color="white"
-          type="password"
-          stack-label="Password"/>
+            inverted-light
+            color="white"
+            type="password"
+            stack-label="Password"/>
           </q-field>
           <div class="row justify-around">
-            <div class="q-mt-sm"><img src="~assets/facebook.png" alt=""></div>
-            <div class="q-mt-sm"><img src="~assets/google-plus-square.png" alt=""></div>
+            <!-- <div class="q-mt-sm"><img src="~assets/facebook.png" alt=""></div>
+            <div class="q-mt-sm"><img src="~assets/google-plus-square.png" alt=""></div> -->
             <div class="q-mt-sm q-pa-sm"><q-btn label="Login" color="black"/></div>
           </div>
         </q-page>

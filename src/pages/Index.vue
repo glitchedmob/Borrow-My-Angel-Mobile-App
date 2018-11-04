@@ -8,8 +8,8 @@
       <div class="full-width text-center fixed-bottom q-mb-xl">
         <q-btn @click="signUp" label="SIGN UP" color="black" class="q-mr-sm my-sm-btn" size="1em"/>
         <q-btn
-        :to='{ name: "Login" }'
-        label="LOGIN"  color="black" class="q-ml-sm my-sm-btn" size="1em"/>
+          :to='{ name: "Login" }'
+          label="LOGIN"  color="black" class="q-ml-sm my-sm-btn" size="1em"/>
         <br><br>
         <q-btn label="REQUEST AN ANGEL" color="red-10" size="1em"/>
       </div>

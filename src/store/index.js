@@ -3,6 +3,7 @@ import Vuex from 'vuex';
 
 import main from './main';
 import chat from './chat';
+import resource from './resource';
 
 Vue.use(Vuex);
 
@@ -16,6 +17,7 @@ export default function (/* { ssrContext } */) {
     modules: {
       main,
       chat,
+      resource,
     },
   });
 
