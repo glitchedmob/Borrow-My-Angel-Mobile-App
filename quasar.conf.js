@@ -71,7 +71,6 @@ module.exports = function (ctx) {
         'QModalLayout',
         'QItemSeparator',
         'QItemTile',
-        'QRadio',
       ],
       directives: [
         'Ripple',
