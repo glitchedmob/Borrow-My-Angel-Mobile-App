@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import { mapMutations, mapState } from 'vuex';
 
 export default {
   name: 'PageIndex',
@@ -40,19 +41,37 @@ export default {
     email: '',
     password: '',
   }),
+  computed: {
+    ...mapState('angel', ['token']),
+  },
   methods: {
-    login() {
+    async login() {
       const url = `${process.env.BASE_URL}/angels/login`;
 
-      this.$axios.post(url, {
+      const loginRes = await this.$axios.post(url, {
         email: this.email,
         password: this.password,
-      }).then((res) => {
-        if (res.status === 200) {
-          this.$router.push({ name: 'AngelChatList' });
-        }
       });
+
+      if (loginRes.status !== 200) return;
+
+      this.setToken({ token: loginRes.data.token });
+
+      console.log(this.token);
+
+      const userRes = await this.$axios({
+        method: 'get',
+        url: `${process.env.BASE_URL}/angels/me`,
+        headers: {
+          Authorization: `Bearer ${this.token}`,
+        },
+      });
+
+      this.setStatus({ status: userRes.data.status });
+
+      this.$router.push({ name: 'AngelChatList' });
     },
+    ...mapMutations('angel', ['setToken', 'setStatus']),
   },
 };
 </script>

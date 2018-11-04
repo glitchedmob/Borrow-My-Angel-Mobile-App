@@ -1,4 +1,5 @@
 <template>
+
   <q-layout class="fullscreen">
     <q-page class="flex wrapper">
       <q-page-container>
@@ -20,7 +21,7 @@
                       :key="index"
                       src="assets/filledHeart.png"
                       alt="hearts"
-                      @click="setMoodLevel(index)"
+                      @click="setMoodLevel({ moodLevel: index })"
                     >
                   </template>
                   <template v-else>
@@ -29,7 +30,7 @@
                       :key="index"
                       src="assets/emptyHeart.png"
                       alt="hearts"
-                      @click="setMoodLevel(index)"
+                      @click="setMoodLevel({ moodLevel: index })"
                     >
                   </template>
                 </template>
@@ -166,7 +167,7 @@ export default {
     };
   },
   computed: {
-    ...mapState('chat', ['moodLevel']),
+    ...mapState('user', ['moodLevel']),
   },
   methods: {
     openNextScreen() {
@@ -196,7 +197,7 @@ export default {
 
       this.newMessage = '';
     },
-    ...mapMutations('chat', ['setMoodLevel']),
+    ...mapMutations('user', ['setMoodLevel']),
   },
   mounted() {
     const chatManager = new ChatManager({

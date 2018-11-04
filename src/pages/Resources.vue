@@ -1,5 +1,5 @@
 <template>
-  <q-page padding>
+  <q-page padding style="background-color: white;">
     <q-modal
       v-model="opened"
       minimized
@@ -92,7 +92,6 @@
 
 <script>
 import ResourceList from '../components/ResourceList';
-import { mapState } from 'vuex';
 
 export default {
   data() {
@@ -103,6 +102,11 @@ export default {
       searchString: '',
       opened: false,
       category: 'Crisis Services',
+      recommendedResources: [
+        { name: 'Crisis Center', phone: '417-111-1111' },
+        { name: 'Counseling', phone: '417-222-2222' },
+        { name: 'Phone a Friend', phone: '417-333-3333' },
+      ],
       categories: [
         { label: 'Crisis Services', value: 'Crisis Services' },
         { label: 'Professional Health', value: 'Professional Health' },
@@ -130,9 +134,6 @@ export default {
   },
   components: {
     ResourceList,
-  },
-  computed: {
-    ...mapState('resource', ['recommendedResources']),
   },
   methods: {
     setRecommended() {
