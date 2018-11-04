@@ -1,40 +1,33 @@
 <template>
-  <q-layout class="background fullscreen">
-    <div class="logo">
-      <img src="~assets/BorrowMyAngel-Logo.png" alt="" class="q-pt-xl">
+  <div class="q-mx-lg q-mt-xl column justify-center full-height">
+    <q-field>
+    <q-input
+      v-model="email"
+      inverted-light
+      color="white"
+      float-label="Email"
+    />
+    </q-field>
+    <q-field>
+    <q-input
+      v-model="password"
+      inverted-light
+      color="white"
+      type="password"
+      float-label="Password"
+    />
+    </q-field>
+    <div class="row justify-around">
+      <!--<div class="q-mt-sm"><img src="~assets/facebook.png" alt=""></div>-->
+      <!--<div class="q-mt-sm"><img src="~assets/google-plus-square.png" alt=""></div>-->
+      <div class="q-mt-sm q-pa-sm"><q-btn label="Login" color="black"/></div>
     </div>
-    <q-page-container>
-      <div class="q-mx-lg q-mt-xl">
-        <q-page>
-          <q-field>
-          <q-input
-            v-model="email"
-            inverted-light
-            color="white"
-            float-label="Email"
-          />
-          </q-field>
-          <q-field>
-          <q-input
-            v-model="password"
-            inverted-light
-            color="white"
-            type="password"
-            float-label="Password"
-          />
-          </q-field>
-          <div class="row justify-around">
-            <!--<div class="q-mt-sm"><img src="~assets/facebook.png" alt=""></div>-->
-            <!--<div class="q-mt-sm"><img src="~assets/google-plus-square.png" alt=""></div>-->
-            <div class="q-mt-sm q-pa-sm"><q-btn label="Login" color="black"/></div>
-          </div>
-          <div class="row justify-around">
-            <div class="q-mt-sm q-pa-sm"><q-btn flat="true" label="Back" color="black" /></div>
-          </div>
-        </q-page>
+    <div class="row justify-around">
+      <div class="q-mt-sm q-pa-sm">
+        <q-btn flat label="Back" color="black" :to="{ name: 'Landing' }"/>
       </div>
-    </q-page-container>
-  </q-layout>
+    </div>
+  </div>
 </template>
 
 <script>

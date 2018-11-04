@@ -1,44 +1,75 @@
 import Index from 'pages/Index.vue';
 import Login from 'pages/Login.vue';
 import Signup from 'pages/Signup.vue';
-import AngelSignUp from 'pages/angel/AngelSignup.vue';
+import AngelSignup from 'pages/angel/AngelSignup.vue';
 
 const routes = [
   {
     path: '/',
-    component: Index,
+    component: () => import('layouts/AccountsLayout.vue'),
+    children: [
+      {
+        path: '/',
+        name: 'Landing',
+        component: Index,
+      },
+      {
+        path: '/login',
+        name: 'Login',
+        component: Login,
+      },
+      {
+        path: '/signup',
+        name: 'Signup',
+        component: Signup,
+      },
+      {
+        path: '/angel/signup',
+        name: 'AngelSignup',
+        component: AngelSignup,
+      },
+    ],
   },
   {
-    name: 'Login',
-    path: '/login',
-    component: Login,
-  },
-  {
-    name: 'Signup',
-    path: '/signup',
-    component: Signup,
-  },
-  {
-    name: 'AngelSignUp',
-    path: '/angel/signup',
-    component: AngelSignUp,
-  },
-  {
-    path: '/',
+    path: '/user',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: 'home', component: () => import('pages/Home.vue') },
-      { path: 'resources', component: () => import('pages/Resources.vue') },
-      { path: 'chat', component: () => import('pages/Chat.vue') },
+      {
+        path: 'home',
+        name: 'UserHome',
+        component: () => import('pages/Home.vue'),
+      },
+      {
+        path: 'resources',
+        name: 'UserResources',
+        component: () => import('pages/Resources.vue'),
+      },
+      {
+        path: 'chat',
+        name: 'UserChat',
+        component: () => import('pages/Chat.vue'),
+      },
     ],
   },
   {
     path: '/angel',
     component: () => import('layouts/AngelLayout.vue'),
     children: [
-      { path: 'resources', component: () => import('pages/angel/Resources.vue') },
-      { path: 'chat', component: () => import('pages/angel/ChatList.vue') },
-      { path: 'chat/:id', component: () => import('pages/angel/ChatDetail.vue') },
+      {
+        path: 'resources',
+        name: 'AngelResources',
+        component: () => import('pages/angel/Resources.vue'),
+      },
+      {
+        path: 'chat',
+        name: 'AngelChatList',
+        component: () => import('pages/angel/ChatList.vue'),
+      },
+      {
+        path: 'chat/:id',
+        name: 'AngelChatDetail',
+        component: () => import('pages/angel/ChatDetail.vue'),
+      },
     ],
   },
 ];

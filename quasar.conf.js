@@ -33,6 +33,9 @@ module.exports = function (ctx) {
           exclude: /node_modules/,
         });
       },
+      env: {
+        BASE_URL: JSON.stringify('https://borrowmyangel.unitedco.de'),
+      },
     },
     devServer: {
       // https: true,
