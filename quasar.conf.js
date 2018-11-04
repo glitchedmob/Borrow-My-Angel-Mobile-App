@@ -69,6 +69,8 @@ module.exports = function (ctx) {
         'QDialog',
         'QModal',
         'QModalLayout',
+        'QItemSeparator',
+        'QItemTile',
       ],
       directives: [
         'Ripple',

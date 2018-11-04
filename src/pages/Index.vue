@@ -47,24 +47,44 @@
               </template>
               </div>
             </div>
-            <div class=" row justify-end">
+            <div class=" row justify-center">
                 <q-btn @click="openNextScreen" label="Next" size="md" color="black"/>
             </div>
           </q-modal-layout>
         </q-modal>
         <q-modal v-model="emergencyModal" minimized content-css="padding: 25px">
           <q-modal-layout>
+            <div class="main column items-center">
               <h5>IS YOUR LIFE IN DANGER?</h5>
               <p>If your life is in danger, <strong>call</strong>
               <font color="red"> 911</font> or other emergency responders in your area.</p>
-              <div class="row justify-center">
-                <q-btn @click="openNextScreen" label="Next" size="md" color="black"/>
-              </div>
+            </div>
+            <div class="row justify-center">
+              <q-btn label="OK" size="md" color="black"/>
+            </div>
           </q-modal-layout>
         </q-modal>
         <q-modal v-model="nonEmergencyModal" minimized content-css="padding: 25px">
           <q-modal-layout>
-            <h5>WHATS GOING ON?</h5>
+            <div class="main row justify-center">
+              <div class="row">
+                <h5>WHATS GOING ON?</h5>
+              </div>
+              <div class="sub-sub">
+                <q-item class="column items-start">
+                  <q-radio
+                    v-model="option"
+                    v-for="situation in situations"
+                    :key="situation.id"
+                    :label="situation.title"
+                    :val="situation.value"
+                  />
+                </q-item>
+              </div>
+              <div class>
+                <q-btn label="OK" size="md" color="black"/>
+              </div>
+            </div>
           </q-modal-layout>
         </q-modal>
     </q-page-container>
@@ -84,6 +104,39 @@ export default {
       nonEmergencyModal: false,
       emergencyModal: false,
       image: 'assets/emptyHeart.png',
+      situations: [
+        {
+          id: 1,
+          title: 'I\'m Feeling Sad',
+          value: 'sad',
+        },
+        {
+          id: 2,
+          title: 'I\'m Having A Rough Day',
+          value: 'rough day',
+        },
+        {
+          id: 3,
+          title: 'Mental Abuse',
+          value: 'Mental Abuse',
+        },
+        {
+          id: 4,
+          title: 'Substance Abuse',
+          value: 'Substance Abuse',
+        },
+        {
+          id: 5,
+          title: 'Physical Abuse',
+          value: 'physical Abuse',
+        },
+        {
+          id: 6,
+          title: 'Other',
+          value: 'other',
+        },
+      ],
+      option: '',
     };
   },
   computed: {
@@ -125,7 +178,11 @@ export default {
   .main {
     padding-bottom: 1.5em;
   }
-  .sub {
+  .sub-sub {
     padding-bottom: 2em;
+    border: 1px solid transparent
+  }
+  ul {
+  list-style-type: none;
   }
 </style>
