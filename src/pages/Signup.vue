@@ -6,19 +6,19 @@
     <q-page-container>
       <div class="column q-mx-md q-mt-md">
         <q-page>
-        <div class="row no-wrap q-pa-none">
+        <div>
           <q-field>
             <q-input
-                class="col q-ma-xs"
+                class="q-ma-xs"
                 v-model="name"
                 inverted-light
                 color="white"
                 float-label="Name"
             />
           </q-field>
-          <q-field>
+          <q-field >
             <q-input
-                class="col q-ma-xs"
+                class="q-ma-xs"
                 v-model="email"
                 inverted-light
                 color="white"
@@ -27,7 +27,7 @@
           </q-field>
         </div>
         <div class="row no-wrap q-pa-none">
-          <q-field>
+          <q-field class="col">
             <q-input
                 class="col q-ma-xs"
                 v-model="password"
@@ -37,9 +37,9 @@
                 float-label="Password"
             />
           </q-field>
-          <q-field>
+          <q-field class="col">
             <q-input
-                class="col q-ma-xs"
+                class="q-ma-xs"
                 v-model="confirmPassword"
                 inverted-light
                 color="white"
