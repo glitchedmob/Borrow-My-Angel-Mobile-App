@@ -20,9 +20,12 @@
             stack-label="Password"/>
           </q-field>
           <div class="row justify-around">
-            <!-- <div class="q-mt-sm"><img src="~assets/facebook.png" alt=""></div>
-            <div class="q-mt-sm"><img src="~assets/google-plus-square.png" alt=""></div> -->
+            <!--<div class="q-mt-sm"><img src="~assets/facebook.png" alt=""></div>-->
+            <!--<div class="q-mt-sm"><img src="~assets/google-plus-square.png" alt=""></div>-->
             <div class="q-mt-sm q-pa-sm"><q-btn label="Login" color="black"/></div>
+          </div>
+          <div class="row justify-around">
+            <div class="q-mt-sm q-pa-sm"><q-btn flat="true" label="Back" color="black" /></div>
           </div>
         </q-page>
       </div>
