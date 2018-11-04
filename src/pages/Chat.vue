@@ -20,7 +20,7 @@
                               :key="index"
                               src="assets/filledHeart.png"
                               alt="hearts"
-                              @click="setMoodLevel(index)"
+                              @click="setMoodLevel({ moodLevel: index })"
                       >
                     </template>
                     <template v-else>
@@ -29,7 +29,7 @@
                               :key="index"
                               src="assets/emptyHeart.png"
                               alt="hearts"
-                              @click="setMoodLevel(index)"
+                              @click="setMoodLevel({ moodLevel: index })"
                       >
                     </template>
                   </template>
@@ -127,7 +127,7 @@ export default {
     };
   },
   computed: {
-    ...mapState('chat', ['moodLevel']),
+    ...mapState('user', ['moodLevel']),
   },
   methods: {
     openNextScreen() {
@@ -149,7 +149,7 @@ export default {
       this.moodLevelModal = false;
       this.emergencyModal = false;
     },
-    ...mapMutations('chat', ['setMoodLevel']),
+    ...mapMutations('user', ['setMoodLevel']),
   },
 };
 

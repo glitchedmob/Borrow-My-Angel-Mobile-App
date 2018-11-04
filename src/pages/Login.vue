@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
 // import qs from 'qs';
 
 export default {
@@ -50,10 +51,12 @@ export default {
         password: this.password,
       }).then((res) => {
         if (res.status === 200) {
+          this.setToken({ token: res.data.token });
           this.$router.push({ name: 'UserHome' });
         }
       });
     },
+    ...mapMutations('user', ['setToken']),
   },
 };
 </script>

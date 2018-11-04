@@ -28,7 +28,7 @@ export default {};
   }
 
   .content {
-    height: calc(100vh - 250px);
+    min-height: calc(100vh - 250px);
   }
 
   .accounts {
