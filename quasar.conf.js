@@ -62,6 +62,7 @@ module.exports = function (ctx) {
         'QInput',
         'QDialog',
         'QModal',
+        'QModalLayout',
       ],
       directives: [
         'Ripple',
