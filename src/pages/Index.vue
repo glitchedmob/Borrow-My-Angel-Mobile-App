@@ -30,6 +30,13 @@
         >
           Angel Signup
         </router-link>
+        <span> / </span>
+        <router-link
+          :to="{ name: 'AngelLogin' }"
+          class="angel-signup-link"
+        >
+          Angel Login
+        </router-link>
       </div>
     </div>
 </template>

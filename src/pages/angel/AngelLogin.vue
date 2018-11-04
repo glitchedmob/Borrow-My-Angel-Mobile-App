@@ -1,21 +1,21 @@
 <template>
   <div class="q-mx-lg q-mt-xl column justify-center full-height">
     <q-field>
-    <q-input
-      v-model="email"
-      inverted-light
-      color="white"
-      float-label="Email"
-    />
+      <q-input
+        v-model="email"
+        inverted-light
+        color="white"
+        float-label="Email"
+      />
     </q-field>
     <q-field>
-    <q-input
-      v-model="password"
-      inverted-light
-      color="white"
-      type="password"
-      float-label="Password"
-    />
+      <q-input
+        v-model="password"
+        inverted-light
+        color="white"
+        type="password"
+        float-label="Password"
+      />
     </q-field>
     <div class="row justify-around">
       <!--<div class="q-mt-sm"><img src="~assets/facebook.png" alt=""></div>-->
@@ -33,7 +33,6 @@
 </template>
 
 <script>
-// import qs from 'qs';
 
 export default {
   name: 'PageIndex',
@@ -43,14 +42,14 @@ export default {
   }),
   methods: {
     login() {
-      const url = `${process.env.BASE_URL}/users/login`;
+      const url = `${process.env.BASE_URL}/angels/login`;
 
       this.$axios.post(url, {
         email: this.email,
         password: this.password,
       }).then((res) => {
         if (res.status === 200) {
-          this.$router.push({ name: 'UserHome' });
+          this.$router.push({ name: 'AngelChatList' });
         }
       });
     },

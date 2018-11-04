@@ -126,12 +126,12 @@ export default {
     gender: null,
     genderOptions: [
       {
-        label: 'Male',
-        value: 'male',
-      },
-      {
         label: 'Female',
         value: 'female',
+      },
+      {
+        label: 'Male',
+        value: 'male',
       },
       {
         label: 'Non-binary',
@@ -152,7 +152,11 @@ export default {
         age: this.age,
         gender: this.gender,
       }).then((res) => {
-        console.log({ res });
+        if (res.status === 200) {
+          this.$router.push({ name: 'Login' });
+        } else {
+          console.log({ res });
+        }
       });
     },
   },
@@ -160,15 +164,4 @@ export default {
 </script>
 
 <style>
-  .background {
-    background-image: url('~assets/bg.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-  .logo img {
-    width: 100%;
-    max-height: 250px;
-  }
 </style>

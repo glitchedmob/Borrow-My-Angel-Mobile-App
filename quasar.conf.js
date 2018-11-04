@@ -34,7 +34,7 @@ module.exports = function (ctx) {
         });
       },
       env: {
-        BASE_URL: JSON.stringify('https://borrowmyangel.unitedco.de'),
+        BASE_URL: JSON.stringify('https://borrowmyangel.unitedco.de/api'),
       },
     },
     devServer: {

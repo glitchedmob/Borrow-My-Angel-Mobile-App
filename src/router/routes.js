@@ -2,6 +2,7 @@ import Index from 'pages/Index.vue';
 import Login from 'pages/Login.vue';
 import Signup from 'pages/Signup.vue';
 import AngelSignup from 'pages/angel/AngelSignup.vue';
+import AngelLogin from 'pages/angel/AngelLogin.vue';
 
 const routes = [
   {
@@ -27,6 +28,11 @@ const routes = [
         path: '/angel/signup',
         name: 'AngelSignup',
         component: AngelSignup,
+      },
+      {
+        path: '/angel/login',
+        name: 'AngelLogin',
+        component: AngelLogin,
       },
     ],
   },

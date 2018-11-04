@@ -66,7 +66,7 @@
         <q-input
           class="q-ma-xs"
           v-model="zip"
-          type="number"
+          type="text"
           inverted-light
           color="white"
           float-label="Zip"
@@ -88,8 +88,8 @@
       <div class="col">
         <q-select
           class="q-ma-sm q-pa-auto"
-          v-model="genders"
-          :options="genders"
+          v-model="gender"
+          :options="genderOptions"
           inverted-light
           color="white"
           float-label="Gender"
@@ -99,7 +99,7 @@
     <q-field>
       <q-input
         class="q-ma-xs"
-        v-model="phoneNumber"
+        v-model="phone"
         inverted-light
         color="white"
         float-label="Phone Number"
@@ -130,45 +130,50 @@ export default {
     confirmPassword: '',
     city: '',
     state: '',
-    zip: null,
+    zip: '',
     age: null,
-    genders: [
-      {
-        label: 'Male',
-        value: 'male',
-      },
+    gender: null,
+    genderOptions: [
       {
         label: 'Female',
         value: 'female',
+      },
+      {
+        label: 'Male',
+        value: 'male',
       },
       {
         label: 'Non-binary',
         value: 'non_binary',
       },
     ],
-    phoneNumber: '',
+    phone: '',
   }),
   methods: {
     signUp() {
-      this.$q.dialog({
-        title: 'Alert',
-        message: 'Modern HTML5 front-end framework on steroids.',
+      const url = `${process.env.BASE_URL}/angels/signup`;
+      this.$axios.post(url, {
+        name: this.name,
+        email: this.email,
+        phone: this.phone,
+        password: this.password,
+        city: this.city,
+        state: this.state,
+        zip: this.zip,
+        age: this.age,
+        gender: this.gender,
+      }).then((res) => {
+        if (res.status === 200) {
+          this.$router.push({ name: 'AngelLogin' });
+        } else {
+          console.log({ res });
+        }
       });
     },
   },
 };
+
 </script>
 
 <style>
-  .backgroundChange {
-    background-image: url('~assets/bg.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    overflow: auto;
-  }
-  .logo img{
-    width: 100%;
-    max-height: 250px;
-  }
 </style>
