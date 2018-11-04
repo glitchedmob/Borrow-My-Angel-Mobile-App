@@ -1,10 +1,18 @@
 <template>
-  <h1>Angel Resources</h1>
+  <ResourceList :resources="resources" />
 </template>
 
 <script>
-export default {
+import ResourceList from '../../components/ResourceList';
+import { mapState } from 'vuex';
 
+export default {
+  components: {
+    ResourceList,
+  },
+  computed: {
+    ...mapState('resource', ['resources']),
+  },
 };
 </script>
 
