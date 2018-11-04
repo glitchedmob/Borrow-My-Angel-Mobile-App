@@ -1,5 +1,5 @@
 <template>
-  <q-layout class="background fullscreen">
+  <q-layout class="backgroundChange fullscreen">
     <div class="logo">
       <img src="~assets/BorrowMyAngel-Logo.png" alt="" class="q-pt-xl">
     </div>
@@ -94,7 +94,7 @@
           <div class="col">
             <q-select
                 class="q-ma-sm q-pa-auto"
-                v-model="genders"
+                v-model="genders.value"
                 :options="genders"
                 inverted-light
                 color="white"
@@ -152,11 +152,12 @@ export default {
 </script>
 
 <style>
-  .background {
+  .backgroundChange {
     background-image: url('~assets/bg.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    overflow: auto;
   }
   .logo img{
     width: 100%;

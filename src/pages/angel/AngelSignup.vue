@@ -94,7 +94,7 @@
           <div class="col">
             <q-select
                 class="q-ma-sm q-pa-auto"
-                v-model="genders"
+                v-model="genders.value"
                 :options="genders"
                 inverted-light
                 color="white"
