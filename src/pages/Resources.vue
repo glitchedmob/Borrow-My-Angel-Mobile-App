@@ -1,5 +1,5 @@
 <template>
-  <q-page padding>
+  <q-page padding style="background-color: white;">
     <q-modal
       v-model="opened"
       minimized
